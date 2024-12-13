@@ -1,15 +1,17 @@
+/* Genel stil ayarları */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-#background-video {
+#background-video, #background-video-light {
     position: absolute;
     top: 0;
     left: 0;
@@ -17,9 +19,11 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-    filter: brightness(0.5);
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
 }
 
+/* İçerik kutusu */
 .container {
     position: relative;
     text-align: center;
@@ -30,7 +34,6 @@ body {
     z-index: 1;
     max-width: 60%;
     box-sizing: border-box;
-    transition: max-width 0.3s ease;
 }
 
 h1 {
@@ -60,14 +63,99 @@ button:hover {
     font-size: 1.5em;
     font-weight: bold;
     color: #ffcc00;
-    animation: fadeIn 1s ease-out;
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/* Karanlık tema */
+body.dark-theme {
+    background-color: #121212;
+    color: white;
 }
 
+body.dark-theme .container {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.dark-theme button {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-theme button:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.theme-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease-in-out;
+}
+
+.theme-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Sosyal medya ikonları */
+.social-icons {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+
+.social-icon {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    gap: 5px;
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    font-weight: bold;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+body.dark-theme .social-icon:hover {
+    color: #ffcc00;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.social-text {
+    font-size: 0.9em;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover .social-text {
+    color: inherit;
+}
+
+body.dark-theme .social-icon:hover .social-text {
+    color: #ffcc00;
+}
+
+.linkedin {
+    color: #0077b5;
+    text-shadow: 0 0 5px rgba(0, 119, 181, 0.7);
+}
+
+.instagram {
+    color: #e4405f;
+    text-shadow: 0 0 5px rgba(228, 64, 95, 0.7);
+}
+
+.github {
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Mobil uyumlu stiller */
 @media screen and (max-width: 768px) {
     .container {
         max-width: 80%;
@@ -85,6 +173,10 @@ button:hover {
 
     .gift-result {
         font-size: 1.2em;
+    }
+
+    .social-icons {
+        flex-direction: column;
     }
 }
 
@@ -105,5 +197,9 @@ button:hover {
 
     .gift-result {
         font-size: 1em;
+    }
+
+    .social-text {
+        font-size: 0.8em;
     }
 }
