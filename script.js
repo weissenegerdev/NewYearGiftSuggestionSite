@@ -32,6 +32,5 @@ document.getElementById('get-gift-btn').addEventListener('click', function() {
 
     const giftResult = document.getElementById('gift-result');
     giftResult.textContent = `Hediye Öneriniz: ${randomGift}`;
-    
     giftResult.style.color = 'yellow';
 });
