@@ -17,6 +17,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
+    filter: brightness(0.5);
 }
 
 .container {
@@ -27,8 +28,9 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     z-index: 1;
-    max-width: 80%;
+    max-width: 60%;
     box-sizing: border-box;
+    transition: max-width 0.3s ease;
 }
 
 h1 {
@@ -44,24 +46,31 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s;
     font-weight: bold;
 }
 
 button:hover {
     background-color: rgba(255, 0, 0, 1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .gift-result {
     margin-top: 30px;
     font-size: 1.5em;
     font-weight: bold;
-    color: #ffcc00; /* Başlangıçta sarı renk */
+    color: #ffcc00;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @media screen and (max-width: 768px) {
     .container {
-        max-width: 90%;
+        max-width: 80%;
         padding: 15px;
     }
 
