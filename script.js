@@ -1,21 +1,17 @@
-// Sayfa yüklendiğinde koyu modun başlatılması
 document.addEventListener('DOMContentLoaded', function() {
-    // Sayfa yüklendiğinde 'dark-theme' sınıfını ekleyerek koyu modu açıyoruz
+
     document.body.classList.add('dark-theme');
     const themeIcon = document.getElementById('theme-toggle');
     const backgroundVideo = document.getElementById('background-video');
     const backgroundVideoLight = document.getElementById('background-video-light');
 
-    // Koyu temaya geçişte video geçişi
     backgroundVideoLight.style.opacity = 0;
     backgroundVideo.style.opacity = 1;
 
-    // Tema simgesini güncelle
     themeIcon.classList.remove('fa-sun');
     themeIcon.classList.add('fa-moon');
 });
 
-// Tema değiştirme işlemi
 document.getElementById('theme-toggle').addEventListener('click', function() {
     document.body.classList.toggle('dark-theme');
     const themeIcon = document.getElementById('theme-toggle');
@@ -26,20 +22,16 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
         themeIcon.classList.remove('fa-sun');
         themeIcon.classList.add('fa-moon');
 
-        // Karanlık temaya geçişte video geçişi
         backgroundVideoLight.style.opacity = 0;
         backgroundVideo.style.opacity = 1;
     } else {
         themeIcon.classList.remove('fa-moon');
         themeIcon.classList.add('fa-sun');
 
-        // Işık temaya geçişte video geçişi
         backgroundVideo.style.opacity = 0;
         backgroundVideoLight.style.opacity = 1;
     }
 });
-
-// Hediye önerisi alma işlemi
 document.getElementById('get-gift-btn').addEventListener('click', function() {
     const gifts = [
         "Akıllı telefon", "Kablosuz kulaklık", "Akıllı saat", "Bluetooth hoparlör", "Oyun konsolu",
