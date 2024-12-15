@@ -1,4 +1,3 @@
-/* Genel stil ayarları */
 body {
     margin: 0;
     padding: 0;
@@ -23,7 +22,6 @@ body {
     transition: opacity 1s ease-in-out;
 }
 
-/* İçerik kutusu */
 .container {
     position: relative;
     text-align: center;
@@ -65,7 +63,6 @@ button:hover {
     color: #ffcc00;
 }
 
-/* Karanlık tema */
 body.dark-theme {
     background-color: #121212;
     color: white;
@@ -97,7 +94,6 @@ body.dark-theme button:hover {
     transform: scale(1.2);
 }
 
-/* Sosyal medya ikonları */
 .social-icons {
     position: fixed;
     bottom: 20px;
@@ -155,7 +151,6 @@ body.dark-theme .social-icon:hover .social-text {
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
 }
 
-/* Mobil uyumlu stiller */
 @media screen and (max-width: 768px) {
     .container {
         max-width: 80%;
